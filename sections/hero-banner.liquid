@@ -39,6 +39,7 @@
             <li>
               <a href="{{ section.settings.choose_gift_link }}" class="btn btn-yellow">
                 {{ section.settings.choose_gift_btn }}
+                {% render 'icon-arrow-right' %}
               </a>
             </li>
           {% endif %}
@@ -75,6 +76,12 @@
         {% endif %}
         {% if section.settings.description %}
           <p>{{ section.settings.description }}</p>
+        {% endif %}
+        {% if section.settings.shop_now_btn %}
+        <a href="{{ section.settings.shop_now_link }}">
+          {{ section.settings.shop_now_btn }}
+          {% render 'icon-arrow-right' %}
+        </a>
         {% endif %}
       </div>
       <div class="col-md-7">
