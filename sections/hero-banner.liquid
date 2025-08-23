@@ -9,7 +9,7 @@
     {% if section.settings.choose_gift_btn %}
       <a href="{{ section.settings.choose_gift_link }}" class="btn btn-yellow">
         {{ section.settings.choose_gift_btn }}
-        {% render 'icon-arrow-right' %}
+        <span>{% render 'icon-arrow-right' %}</span>
       </a>
     {% endif %}
   </div>
@@ -39,6 +39,7 @@
           <li>
             <a href="{{ section.settings.choose_gift_link }}" class="btn btn-yellow">
               {{ section.settings.choose_gift_btn }}
+              {% render 'icon-arrow-right' %}
             </a>
           </li>
         {% endif %}
