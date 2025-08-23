@@ -15,36 +15,36 @@
   </div>
   <div class="baner-top-header mobile_view">
     <div class="header-ni-mobile">
-    {% if section.settings.logo_text %}
-      <h2 class="gift-logo">{{ section.settings.logo_text }}</h2>
-    {% endif %}
-    <div class="menu-header">
-      <div class="bar-icon">
-        <div class="banner-bar-ni">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-hamburger" viewBox="0 0 18 16">
-            <path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"></path>
-          </svg>
+      {% if section.settings.logo_text %}
+        <h2 class="gift-logo">{{ section.settings.logo_text }}</h2>
+      {% endif %}
+      <div class="menu-header">
+        <div class="bar-icon">
+          <div class="banner-bar-ni">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-hamburger" viewBox="0 0 18 16">
+              <path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"></path>
+            </svg>
+          </div>
+          <div class="banner-close-ni">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17">
+              <path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"></path>
+            </svg>
+          </div>
         </div>
-        <div class="banner-close-ni">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17">
-            <path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"></path>
-          </svg>
-        </div>
+        <ul>
+          {% if section.settings.sub_text %}
+            <li class="gift-sub">{{ section.settings.sub_text }}</li>
+          {% endif %}
+          {% if section.settings.choose_gift_btn %}
+            <li>
+              <a href="{{ section.settings.choose_gift_link }}" class="btn btn-yellow">
+                {{ section.settings.choose_gift_btn }}
+                {% render 'icon-arrow-right' %}
+              </a>
+            </li>
+          {% endif %}
+        </ul>
       </div>
-      <ul>
-        {% if section.settings.sub_text %}
-          <li class="gift-sub">{{ section.settings.sub_text }}</li>
-        {% endif %}
-        {% if section.settings.choose_gift_btn %}
-          <li>
-            <a href="{{ section.settings.choose_gift_link }}" class="btn btn-yellow">
-              {{ section.settings.choose_gift_btn }}
-              {% render 'icon-arrow-right' %}
-            </a>
-          </li>
-        {% endif %}
-      </ul>
-    </div>
     </div>
   </div>
   <div class="hero-banner-image">
@@ -188,253 +188,255 @@
 }
 {% endschema %}
 
-{% comment %} <style>
-  .baner-top-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: absolute;
-      width: 100%;
-      background: #ccc;
-      padding: 0 160px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-  }
+<style>
+    .baner-top-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        background: #ccc;
+        padding: 0 160px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 
-  .gift-banner {
-      background-size: cover;
-      background-position: center;
+    .gift-banner {
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        position: relative;
+    }
+    .gift-logo {
+        font-weight: bold;
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .gift-sub {
+        font-size: 16px;
+    }
+
+    p.gift-sub {
+        margin: 0;
+    }
+
+    .hero-banner-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .gift-banner-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0 0 160px;
+    }
+
+    .gift-banner-row .col-md-5 {
+        width: 34%;
+        text-align: left;
+    }
+
+    .gift-banner-row .col-md-7 {
+        width: 66%;
+    }
+
+    .gift-heading {
+        font-size: 45px;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+
+    .gift-desc {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 20px auto 30px;
+        max-width: 600px;
+        text-align: left;
+    }
+
+    .baner-top-header .btn-yellow {
+        display: inline-block;
+        padding: 5px 30px;
+        font-weight: bold;
+        border-radius: 3px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-yellow {
+        background: #ffe600;
+        color: #000;
+    }
+
+    a.btn.btn-yellow {
+        margin: 0;
+        display: flex;
       text-align: center;
-      position: relative;
+      gap: 13px;
+    }
+    span svg {
+      width: 24px;
   }
-  .gift-logo {
-      font-weight: bold;
-      font-size: 18px;
+    .gift-banner-row .btn-black {
+        display: inline-block;
+        padding: 12px 30px;
+        font-weight: bold;
+        border-radius: 3px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .btn-black {
+        background: #000;
+        color: #fff;
+    }
+
+    .btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .gift-bottom-img {
+        margin-top: 0;
+    }
+
+    .gift-bottom-img img {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .gift-footer {
+        margin-top: 0;
+        font-size: 14px;
+        letter-spacing: 1px;
+        position: absolute;
+        width: 100%;
+        background: #ccc;
+        bottom: 0;
+        left: 0;
+    }
+    .baner-top-header.mobile_view {
+      display: none;
+    }
+
+    .menu-header ul {
+      display: none;
+      list-style: none;
+      padding: 0;
       margin: 0;
+    }
+
+  .banner-close-ni {
+    display: none;
+    cursor: pointer;
   }
 
-  .gift-sub {
-      font-size: 16px;
+  .banner-bar-ni {
+    cursor: pointer;
   }
 
-  p.gift-sub {
-      margin: 0;
+
+
+
+  @media (max-width: 580px){
+
+      .baner-top-header.desktop_view {
+      display: none;
   }
 
-  .hero-banner-image img {
-      width: 100%;
-      height: 100%;
+  .baner-top-header.mobile_view {
+      display: block;
+      padding: 20px 30px;
+      position: static;
+  }
+
+  .header-ni-mobile {
+      display: flex;
+      align-items: center;
+  }
+  .header-ni-mobile .menu-header {
+      width: 24px;
+      margin-right: 30px;
+  }
+  h2.gift-logo {
+      order: 2;
+      width: 70%;
+      font-size: 30px;
+  }
+  .header-ni-mobile .menu-header .banner-bar-ni svg {
       display: block;
   }
-
+  .menu-header ul {
+      position: fixed;
+      top: 79px;
+      background: #fff;
+      left: -100%;
+      height: 100vh;
+      padding: 20px;
+      width: 80%;
+      transition: 0.3s;
+      z-index: 9;
+  }
+  .menu-header ul.active{
+      left: 0%;
+      transition: 0.3s;
+  }
+  .hero-banner-image img {
+      display: none;
+  }
   .gift-banner-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 0 0 160px;
+      flex-wrap: wrap;
+      padding: 0;
   }
-
   .gift-banner-row .col-md-5 {
-      width: 34%;
-      text-align: left;
+      width: 100%;
+      text-align: center;
+      padding: 0 10px;
   }
-
+  .gift-banner-row .gift-desc {
+      text-align: center;
+  }
   .gift-banner-row .col-md-7 {
-      width: 66%;
-  }
-
-  .gift-heading {
-      font-size: 45px;
-      font-weight: bold;
-      margin: 20px 0;
-  }
-
-  .gift-desc {
-      font-size: 16px;
-      line-height: 1.5;
-      margin: 20px auto 30px;
-      max-width: 600px;
-      text-align: left;
-  }
-
-  .baner-top-header .btn-yellow {
-      display: inline-block;
-      padding: 5px 30px;
-      font-weight: bold;
-      border-radius: 3px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-  }
-
-  .btn-yellow {
-      background: #ffe600;
-      color: #000;
-  }
-
-  a.btn.btn-yellow {
-      margin: 0;
+      width: 100%;
   }
   .gift-banner-row .btn-black {
-      display: inline-block;
-      padding: 12px 30px;
-      font-weight: bold;
-      border-radius: 3px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-  }
-  .btn-black {
-      background: #000;
-      color: #fff;
-  }
-
-  .btn:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  }
-
-  .gift-bottom-img {
-      margin-top: 0;
-  }
-
-  .gift-bottom-img img {
-      max-width: 100%;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-  }
-  .gift-footer {
-      margin-top: 0;
-      font-size: 14px;
-      letter-spacing: 1px;
       position: absolute;
-      width: 100%;
-      background: #ccc;
-      bottom: 0;
-      left: 0;
-  }
-  .baner-top-header.mobile_view {
-    display: none;
+      bottom: 190px;
+      display: block;
+      transform: translateX(-50%);
+      left: 50%;
   }
 
-  .menu-header ul {
-    display: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+
+
+
+
+
+
   }
-
-.banner-close-ni {
-  display: none;
-  cursor: pointer;
-}
-
-.banner-bar-ni {
-  cursor: pointer;
-}
-
-
-
-
-@media (max-width: 580px){
-
-    .baner-top-header.desktop_view {
-    display: none;
-}
-
-.baner-top-header.mobile_view {
-    display: block;
-    padding: 20px 30px;
-    position: static;
-}
-
-.header-ni-mobile {
-    display: flex;
-    align-items: center;
-}
-.header-ni-mobile .menu-header {
-    width: 24px;
-    margin-right: 30px;
-}
-h2.gift-logo {
-    order: 2;
-    width: 70%;
-    font-size: 30px;
-}
-.header-ni-mobile .menu-header .banner-bar-ni svg {
-    display: block;
-}
-.menu-header ul {
-    position: fixed;
-    top: 79px;
-    background: #fff;
-    left: -100%;
-    height: 100vh;
-    padding: 20px;
-    width: 80%;
-    transition: 0.3s;
-    z-index: 9;
-}
-.menu-header ul.active{
-    left: 0%;
-    transition: 0.3s;
-}
-.hero-banner-image img {
-    display: none;
-}
-.gift-banner-row {
-    flex-wrap: wrap;
-    padding: 0;
-}
-.gift-banner-row .col-md-5 {
-    width: 100%;
-    text-align: center;
-    padding: 0 10px;
-}
-.gift-banner-row .gift-desc {
-    text-align: center;
-}
-.gift-banner-row .col-md-7 {
-    width: 100%;
-}
-.gift-banner-row .btn-black {
-    position: absolute;
-    bottom: 190px;
-    display: block;
-    transform: translateX(-50%);
-    left: 50%;
-}
-
-
-
-
-
-
-
-}
-
-
-</style> {% endcomment %}
+</style>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const barIcon = document.querySelector(".banner-bar-ni");
-  const closeIcon = document.querySelector(".banner-close-ni");
-  const menuList = document.querySelector(".menu-header ul");
+  document.addEventListener('DOMContentLoaded', function () {
+    const barIcon = document.querySelector('.banner-bar-ni');
+    const closeIcon = document.querySelector('.banner-close-ni');
+    const menuList = document.querySelector('.menu-header ul');
 
-  if (barIcon && closeIcon && menuList) {
-    barIcon.addEventListener("click", function () {
-      menuList.classList.add("active"); 
-      menuList.style.display = "block";
-      barIcon.style.display = "none";
-      closeIcon.style.display = "block";
+    if (barIcon && closeIcon && menuList) {
+      barIcon.addEventListener('click', function () {
+        menuList.classList.add('active');
+        menuList.style.display = 'block';
+        barIcon.style.display = 'none';
+        closeIcon.style.display = 'block';
+      });
 
-    });
-
-    closeIcon.addEventListener("click", function () {
-      menuList.classList.remove("active");
-      menuList.style.display = "none";
-      closeIcon.style.display = "none";
-      barIcon.style.display = "block";
-    });
-  }
-});
+      closeIcon.addEventListener('click', function () {
+        menuList.classList.remove('active');
+        menuList.style.display = 'none';
+        closeIcon.style.display = 'none';
+        barIcon.style.display = 'block';
+      });
+    }
+  });
 </script>
-
