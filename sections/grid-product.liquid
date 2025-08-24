@@ -34,9 +34,7 @@
                 data-product-id="{{ product.id }}"
                 data-product-handle="{{ product.handle }}"
               >
-                <!-- ✅ handle add किया -->
-
-                {% if product.has_only_default_variant == false %}
+                                {% if product.has_only_default_variant == false %}
                   {% for option in product.options_with_values %}
                     <div class="option-group">
                       <label class="option-label">{{ option.name }}</label>
