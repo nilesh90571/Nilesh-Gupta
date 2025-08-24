@@ -258,12 +258,12 @@
     }
 
     .baner-top-header .btn-yellow {
-        display: inline-block;
-        padding: 5px 30px;
-        border-radius: 3px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
+    display: inline-block;
+    padding: 5px 30px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
 
     .btn-yellow {
         background: #ffe600;
@@ -275,7 +275,16 @@
         display: flex;
         align-items: center;
         gap: 13px;
+        transition: all 0.4s ease;
     }
+    a.btn.btn-yellow:hover {
+    background: #000;              
+    color: #fff;                   
+    transform: translateX(10px);   
+}
+a.btn.btn-yellow:hover svg path {
+    fill: #fff;
+}
     span svg {
         width: 24px;
     }
