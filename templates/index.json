@@ -95,11 +95,21 @@
         "shop_now_link": "",
         "footer_text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
       }
+    },
+    "grid_product_FiaDr6": {
+      "type": "grid-product",
+      "name": "New Product Grid with Popup",
+      "settings": {
+        "collection": "",
+        "desktop_columns": 3,
+        "products_limit": 6
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "hero_banner_gnAdkd"
+    "hero_banner_gnAdkd",
+    "grid_product_FiaDr6"
   ]
 }
