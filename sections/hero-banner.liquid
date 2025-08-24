@@ -77,6 +77,27 @@
         {% if section.settings.description %}
           <p class="gift-desc">{{ section.settings.description }}</p>
         {% endif %}
+        <div class="banner-img-ni mobile_view">
+        {% assign image_data = section.settings.mobile_banner_bg %}
+        {% if image_data %}
+          <img
+            srcset="
+              {% if image_data.width >= 350 %}{{ image_data | image_url: width: 350 }} 350w,{% endif %}
+              {% if image_data.width >= 750 %}{{ image_data | image_url: width: 750 }} 750w,{% endif %}
+              {% if image_data.width >= 1100 %}{{ image_data | image_url: width: 1100 }} 1100w,{% endif %}
+              {% if image_data.width >= 1500 %}{{ image_data | image_url: width: 1500 }} 1500w,{% endif %}
+              {% if image_data.width >= 2200 %}{{ image_data | image_url: width: 2200 }} 2200w,{% endif %}
+              {% if image_data.width >= 3000 %}{{ image_data | image_url: width: 3000 }} 3000w,{% endif %}
+              {{ image_data | image_url }} {{ image_data.width }}w
+            "
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+            src="{{ image_data | image_url: width: 1100 }}"
+            loading="lazy"
+            width="{{ image_data.width }}"
+            height="{{ image_data.height }}"
+          >
+        {% endif %}
+        </div>
         {% if section.settings.shop_now_btn %}
           <a href="{{ section.settings.shop_now_link }}" class="btn btn-black">
             {{ section.settings.shop_now_btn }}
@@ -162,6 +183,11 @@
       "id": "description",
       "label": "Description",
       "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_banner_bg",
+      "label": "Mobile Banner Image"
     },
     {
       "type": "text",
@@ -411,7 +437,9 @@ span svg {
 .banner-bar-ni {
     cursor: pointer;
 }
-
+.banner-img-ni .mobile_view {
+  display: none;
+}
 
 
 
@@ -495,11 +523,9 @@ span svg {
         left: 50%;
     }
 
-
-
-
-
-
+    .banner-img-ni .mobile_view {
+      display: block;
+    }
 
 }
 
